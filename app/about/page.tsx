@@ -35,6 +35,9 @@ const HOW_IT_WORKS = [
 const SOURCES = [
   { name: 'Sarawak eTender Portal', url: 'https://etendernotice.sarawak.gov.my', dept: 'Multiple government departments' },
   { name: 'SEDC Sarawak', url: 'https://sedc.com.my/notice-of-tender/', dept: 'Sarawak Economic Development Corporation' },
+  { name: 'JKR Sarawak Portal', url: 'https://jkr.sarawak.gov.my/web/subpage/tender_and_quotation_list/tender', dept: 'JKR Sarawak (Public Works Department)' },
+  { name: 'RECODA', url: 'https://recoda.gov.my/tender/', dept: 'Regional Corridor Development Authority' },
+  { name: 'Bintulu Development Authority (BDA)', url: 'https://www.bda.gov.my/web/subpage/webpage_view/53', dept: 'Bintulu Development Authority' },
 ]
 
 export default function AboutPage() {

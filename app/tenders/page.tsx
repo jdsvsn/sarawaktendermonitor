@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import { MOCK_TENDERS } from '../types'
 import { getLiveTenders } from '../scraper'
 
-export const revalidate = 21600 // 6-hour cache
+export const dynamic = 'force-dynamic'
 
 async function getTenders() {
   try {

@@ -26,6 +26,13 @@ export interface Tender {
   license?: string
   imageUrl?: string
   upkjRegistrations?: UPKJRegistration[]
+  eligible_tenderers?: string
+  instructions_to_tenderers?: string
+  mandatory_requirements?: string[]
+  class_qualification?: string
+  doc_fee?: string
+  doc_deposit?: string
+  closing_time?: string
 }
 
 export const MOCK_TENDERS: Tender[] = [
@@ -140,3 +147,71 @@ export function getStatusBadge(daysLeft: number, postedDate: string): 'URGENT' |
   }
   return 'OPEN'
 }
+
+export interface AwardedTender {
+  ref_no: string
+  title: string
+  organization: string
+  awarded_to: string
+  amount: string
+  award_date: string
+  category: 'Works' | 'Supplies' | 'Services'
+}
+
+export const MOCK_AWARDED_TENDERS: AwardedTender[] = [
+  {
+    ref_no: 'JKR/T/2026/0410',
+    title: 'UPGRADE OF COASTAL ROAD INFRASTRUCTURE, MUKAH DIVISION - PHASE 1',
+    organization: 'JKR Sarawak (Public Works Department)',
+    awarded_to: 'BORNEO CIVIL ENGINEERING SDN BHD',
+    amount: 'RM 24,500,000.00',
+    award_date: '15-05-2026',
+    category: 'Works',
+  },
+  {
+    ref_no: 'DBKU/2025/TEN/098',
+    title: 'SUPPLY OF SMART WASTE MANAGEMENT SENSORS FOR DBKU AREA',
+    organization: 'DBKU (Kuching North City Commission)',
+    awarded_to: 'SYNAPSE TECHNOLOGIES SDN BHD',
+    amount: 'RM 1,200,000.00',
+    award_date: '12-04-2026',
+    category: 'Supplies',
+  },
+  {
+    ref_no: 'SEB-T-25-882',
+    title: 'GRID MODERNIZATION CONSULTANCY SERVICES FOR SEB',
+    organization: 'Sarawak Energy Berhad',
+    awarded_to: 'PWC MALAYSIA',
+    amount: 'RM 3,450,000.00',
+    award_date: '08-05-2026',
+    category: 'Services',
+  },
+  {
+    ref_no: 'BDA/2025/CON/012',
+    title: 'CONSTRUCTION OF ADMINISTRATIVE COMPLEX IN MIRI',
+    organization: 'Bintulu Development Authority (BDA)',
+    awarded_to: 'ZECON BERHAD',
+    amount: 'RM 42,800,000.00',
+    award_date: '28-03-2026',
+    category: 'Works',
+  },
+  {
+    ref_no: 'SEDC:Q/10/2026',
+    title: 'PROVISION OF SECURITY SERVICES FOR SEDC KUCHING ASSETS',
+    organization: 'Sarawak Economic Development Corporation (SEDC)',
+    awarded_to: 'KAWAL PRIMA SECURITY SDN BHD',
+    amount: 'RM 890,000.00',
+    award_date: '10-05-2026',
+    category: 'Services',
+  },
+  {
+    ref_no: 'MOH/SWK/2025/MED/110',
+    title: 'SUPPLY OF DIALYSIS MACHINES FOR SIBU HOSPITAL',
+    organization: 'Ministry of Health Sarawak',
+    awarded_to: 'MEDILIFE SOLUTIONS SDN BHD',
+    amount: 'RM 2,150,000.00',
+    award_date: '02-04-2026',
+    category: 'Supplies',
+  },
+]
+

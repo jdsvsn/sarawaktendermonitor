@@ -85,8 +85,17 @@ export default function TenderFeed({ tenders, loading }: TenderFeedProps) {
     } else {
       result.sort((a, b) => {
         const toDate = (s: string) => {
-          const p = s.split('-')
-          return p.length === 3 ? new Date(`${p[2]}-${p[1]}-${p[0]}`).getTime() : 0
+          if (!s) return 0
+          const clean = s.trim().replace(/\//g, '-')
+          const p = clean.split('-')
+          if (p.length !== 3) return 0
+          if (p[0].length === 4) {
+            return new Date(`${p[0]}-${p[1]}-${p[2]}`).getTime()
+          }
+          if (p[2].length === 4) {
+            return new Date(`${p[2]}-${p[1]}-${p[0]}`).getTime()
+          }
+          return 0
         }
         return toDate(b.posted_date) - toDate(a.posted_date)
       })

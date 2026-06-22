@@ -180,6 +180,54 @@ export default function TenderCard({ tender, index }: TenderCardProps) {
             </div>
           )}
 
+          {/* SEB Specific Details */}
+          {(tender.eligible_tenderers || tender.instructions_to_tenderers || (tender.mandatory_requirements && tender.mandatory_requirements.length > 0)) && (
+            <div className="mb-6 p-4 bg-slate-50/50 border border-slate-100 rounded-xl space-y-4">
+              <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <CheckCircle2 size={12} className="text-red-600" />
+                Tender Details & Requirements
+              </div>
+              
+              <div className="space-y-3">
+                {tender.eligible_tenderers && (
+                  <div className="text-xs pb-3 border-b border-slate-200/60 last:border-0 last:pb-0">
+                    <span className="text-slate-400 font-bold block mb-1">Eligible Tenderers</span>
+                    <p className="text-slate-700 font-body leading-relaxed">{tender.eligible_tenderers}</p>
+                  </div>
+                )}
+                {tender.instructions_to_tenderers && (
+                  <div className="text-xs pb-3 border-b border-slate-200/60 last:border-0 last:pb-0">
+                    <span className="text-slate-400 font-bold block mb-1">Instructions to Tenderers</span>
+                    <p className="text-slate-700 font-body leading-relaxed">{tender.instructions_to_tenderers}</p>
+                  </div>
+                )}
+                {tender.mandatory_requirements && tender.mandatory_requirements.length > 0 && (
+                  <div className="text-xs pb-3 border-b border-slate-200/60 last:border-0 last:pb-0">
+                    <span className="text-slate-400 font-bold block mb-1">Mandatory Requirements to Submit the Tender</span>
+                    <ul className="list-disc pl-4 space-y-1 text-slate-700 font-body leading-relaxed">
+                      {tender.mandatory_requirements.map((req, rIdx) => (
+                        <li key={rIdx}>{req}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* JKR Specific Class & Qualification */}
+          {tender.class_qualification && (
+            <div className="mb-6 p-4 bg-slate-50/50 border border-slate-100 rounded-xl space-y-2">
+              <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <ShieldCheck size={12} className="text-red-600" />
+                Class / Qualification
+              </div>
+              <p className="text-xs text-slate-700 font-mono whitespace-pre-line leading-relaxed">
+                {tender.class_qualification}
+              </p>
+            </div>
+          )}
+
           {/* Meta */}
           <div className="flex flex-wrap gap-4 text-xs text-slate-500">
             <span className="flex items-center gap-1.5">
@@ -207,6 +255,13 @@ export default function TenderCard({ tender, index }: TenderCardProps) {
             <div className={`font-display text-xl ${closingColor}`}>
               {tender.closing_date}
             </div>
+            {tender.closing_time && (
+              <div className="text-[10px] text-slate-400 font-mono mt-0.5">
+                {tender.closing_time.includes(' ')
+                  ? tender.closing_time.substring(tender.closing_time.indexOf(' ') + 1)
+                  : ''}
+              </div>
+            )}
             <div className={`text-xs mt-0.5 ${daysLeft <= 3 ? 'text-red-600' : 'text-slate-400'}`}>
               {daysLeft <= 0
                 ? 'Closed'
@@ -214,6 +269,24 @@ export default function TenderCard({ tender, index }: TenderCardProps) {
                 ? '1 day left'
                 : `${daysLeft} days left`}
             </div>
+
+            {/* Doc Fee / Deposit */}
+            {(tender.doc_fee || tender.doc_deposit) && (
+              <div className="text-[11px] text-slate-500 mt-3 space-y-1 md:text-right">
+                {tender.doc_fee && (
+                  <div>
+                    <span className="text-slate-400">Doc Fee:</span>{' '}
+                    <span className="font-mono font-medium text-slate-700">RM {tender.doc_fee}</span>
+                  </div>
+                )}
+                {tender.doc_deposit && tender.doc_deposit !== '0.00' && (
+                  <div>
+                    <span className="text-slate-400">Deposit:</span>{' '}
+                    <span className="font-mono font-medium text-slate-700">RM {tender.doc_deposit}</span>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           <a

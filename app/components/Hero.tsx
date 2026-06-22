@@ -32,8 +32,8 @@ export default function Hero({ tenderCount }: { tenderCount: number }) {
       className="relative min-h-screen flex items-start justify-center overflow-hidden bg-grid pt-32 md:pt-40"
     >
       {/* Corner decorations */}
-      <div className="absolute top-40 left-24 w-20 h-20 border-l-2 border-t-2 border-red-600/20 rounded-tl-lg" />
-      <div className="absolute bottom-40 right-24 w-20 h-20 border-r-2 border-b-2 border-red-600/20 rounded-br-lg" />
+      <div className="hidden md:block absolute top-40 left-24 w-20 h-20 border-l-2 border-t-2 border-red-600/20 rounded-tl-lg" />
+      <div className="hidden md:block absolute bottom-40 right-24 w-20 h-20 border-r-2 border-b-2 border-red-600/20 rounded-br-lg" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Live badge */}
