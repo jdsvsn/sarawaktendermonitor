@@ -758,7 +758,7 @@ export async function fetchBDATender(): Promise<Tender[]> {
           const endIdx = nextRef ? nextRef.index : text.length;
           const block = text.substring(startIdx, endIdx);
           
-          const lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+          const lines = block.split('\n').map((l: string) => l.trim()).filter((l: string) => l.length > 0);
           
           let closingDate = 'See Link';
           let dateIdx = -1;
