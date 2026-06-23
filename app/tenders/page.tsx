@@ -1,8 +1,17 @@
+import { Metadata } from 'next'
 import Navbar from '../components/Navbar'
 import TenderFeed from '../components/TenderFeed'
 import Footer from '../components/Footer'
 import { MOCK_TENDERS } from '../types'
 import { getLiveTenders } from '../scraper'
+
+export const metadata: Metadata = {
+  title: 'Active Sarawak Government Tender Notices & Bids',
+  description: 'Browse the full database of active government tender notices, public procurement items, and engineering/ICT bids in Sarawak, Malaysia.',
+  alternates: {
+    canonical: 'https://sarawaktendermonitor.com/tenders',
+  }
+}
 
 export const dynamic = 'force-dynamic'
 

@@ -21,8 +21,13 @@ const dmMono = DM_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Sarawak Tender Monitor',
-  description: 'Real-time government tender notices for Sarawak',
+  title: {
+    default: 'Sarawak Tender Monitor | Latest Government Procurement & Project Notices',
+    template: '%s | Sarawak Tender Monitor'
+  },
+  description: 'Live, real-time government tender notices, bids, and procurement opportunities aggregated from official Sarawak public portals. Never miss a public sector contract in Sarawak.',
+  keywords: ['Sarawak', 'Tender', 'Monitor', 'Notices', 'Sarawak Government Procurement', 'e-Procurement Sarawak', 'Sarawak eTender', 'Sarawak Bids', 'Sarawak Project Tenders', 'Sarawak Tender Bot', 'Sarawak Engineering Tenders'],
+  metadataBase: new URL('https://sarawaktendermonitor.com'),
   icons: {
     icon: [
       { url: '/logo.png', sizes: '32x32', type: 'image/png' },
@@ -32,6 +37,42 @@ export const metadata: Metadata = {
     apple: [
       { url: '/logo.png', sizes: '180x180', type: 'image/png' },
     ],
+  },
+  openGraph: {
+    title: 'Sarawak Tender Monitor | Latest Government Procurement & Project Notices',
+    description: 'Live, real-time government tender notices, bids, and procurement opportunities aggregated from official Sarawak public portals.',
+    url: 'https://sarawaktendermonitor.com',
+    siteName: 'Sarawak Tender Monitor',
+    images: [
+      {
+        url: '/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'Sarawak Tender Monitor Logo',
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sarawak Tender Monitor | Latest Government Procurement & Project Notices',
+    description: 'Track and monitor active government procurement notices and project bids in Sarawak in real-time.',
+    images: ['/logo.png'],
+  },
+  alternates: {
+    canonical: 'https://sarawaktendermonitor.com',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 }
 
